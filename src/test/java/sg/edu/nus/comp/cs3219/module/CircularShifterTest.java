@@ -35,5 +35,22 @@ public class CircularShifterTest {
 		assertEquals("Day after Tomorrow the", afterShiftLineStorage.get(0).toString());
 		assertEquals("Tomorrow the Day after", afterShiftLineStorage.get(1).toString());
 	}
+	
+	@Test
+	public void test1() {
+		inputLineStorage.addLine("Key Word in Context");
+		assertEquals(4, afterShiftLineStorage.size());
+		
+		assertEquals("Key Word in Context", afterShiftLineStorage.get(0).toString());
+		assertEquals("Word in Context Key", afterShiftLineStorage.get(1).toString());
+		assertEquals("in Context Key Word", afterShiftLineStorage.get(2).toString());
+		assertEquals("Context Key Word in", afterShiftLineStorage.get(3).toString());
+	}
+	
+	@Test
+	public void test2() {
+		inputLineStorage.addLine("the after the");
+		assertEquals(0, afterShiftLineStorage.size());
+	}
 
 }
